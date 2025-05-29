@@ -1,0 +1,179 @@
+<template>
+  <div class="login-div">
+    <div class="product-card" variant="flat">
+      <img class="product-logo" src="@/assets/seata_logo_white.png">
+      <p class="product-desc">
+        Seata is an open source distributed transaction solution that delivers high performance and easy to use distributed transaction services under a microservices architecture.
+      </p>
+    </div>
+    <div className="animation animation1" />
+    <div className="animation animation2" />
+    <div className="animation animation3" />
+    <div className="animation animation4" />
+    <div className="animation animation5" />
+    <v-card
+      class="login-card pa-12 pb-8"
+      max-width="448"
+      rounded="lg"
+      variant="flat"
+    >
+      <v-img
+        class="mx-auto my-6"
+        max-width="228"
+        src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg"
+      />
+
+      <div class="text-subtitle-1 text-medium-emphasis">Account</div>
+
+      <v-text-field
+        density="compact"
+        placeholder="Email address"
+        prepend-inner-icon="mdi-email-outline"
+        variant="outlined"
+      />
+
+      <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
+        Password
+
+        <a
+          class="text-caption text-decoration-none text-blue"
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Forgot login password?</a>
+      </div>
+
+      <v-text-field
+        :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+        density="compact"
+        placeholder="Enter your password"
+        prepend-inner-icon="mdi-lock-outline"
+        :type="visible ? 'text' : 'password'"
+        variant="outlined"
+        @click:append-inner="visible = !visible"
+      />
+
+      <v-card
+        class="mb-12"
+        color="surface-variant"
+        variant="tonal"
+      >
+        <v-card-text class="text-medium-emphasis text-caption">
+          Warning: After 3 consecutive failed login attempts, you account will be temporarily locked for three hours. If you must login now, you can also click "Forgot login password?" below to reset the login password.
+        </v-card-text>
+      </v-card>
+
+      <v-btn
+        block
+        class="mb-8"
+        color="blue"
+        size="large"
+        variant="tonal"
+      >
+        Log In
+      </v-btn>
+
+      <v-card-text class="text-center">
+        <a
+          class="text-blue text-decoration-none"
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Sign up now <v-icon icon="mdi-chevron-right" />
+        </a>
+      </v-card-text>
+    </v-card>
+  </div>
+</template>
+<route lang="yaml">
+meta:
+  layout: public
+</route>
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const visible = ref(false)
+</script>
+<style lang="scss" scoped>
+
+@keyframes slashStar {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+$animationDuration: 2s;
+
+.login-div{
+  background: url('@/assets/black_dot.png') repeat;
+  background-size: 14px 14px;
+  height: 100%;
+  position: relative;
+  .animation {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #1be1f6;
+      &1 {
+        left: 15%;
+        top: 70%;
+        animation: slashStar $animationDuration ease-in-out 0.3s infinite;
+      }
+      &2 {
+        left: 34%;
+        top: 35%;
+        animation: slashStar $animationDuration ease-in-out 1.2s infinite;
+      }
+      &3 {
+        left: 53%;
+        top: 20%;
+        animation: slashStar $animationDuration ease-in-out 0.5s infinite;
+      }
+      &4 {
+        left: 72%;
+        top: 64%;
+        animation: slashStar $animationDuration ease-in-out 0.8s infinite;
+      }
+      &5 {
+        left: 87%;
+        top: 30%;
+        animation: slashStar $animationDuration ease-in-out 1.5s infinite;
+      }
+    }
+  .login-card{
+    position: absolute;
+    right: 40px;
+    top: 90px;
+  }
+  .product-card{
+    position: absolute;
+    left: 0;
+    top: 30%;
+    margin-top: -47px;
+    width: 600px;
+    margin-left: 40px;
+  }
+  .product-logo{
+    display: block;
+    width: 257px;
+    height: 50px;
+    margin: 0;
+  }
+  .product-desc{
+    opacity: 0.8;
+    // font-family: Avenir-Medium;
+    font-size: 24px;
+    color: #fff;
+    max-width: 780px;
+    margin: 12px auto 30px;
+    text-align: left;
+    line-height: 32px;
+  }
+}
+</style>
