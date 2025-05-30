@@ -3,7 +3,7 @@
     <div class="product-card" variant="flat">
       <img class="product-logo" src="@/assets/seata_logo_white.png">
       <p class="product-desc">
-        Seata is an open source distributed transaction solution that delivers high performance and easy to use distributed transaction services under a microservices architecture.
+        {{ $t('login.desc') }}
       </p>
     </div>
     <div className="animation animation1" />
@@ -13,9 +13,9 @@
     <div className="animation animation5" />
     <v-card
       class="login-card pa-12 pb-8"
-      max-width="448"
       rounded="lg"
       variant="flat"
+      width="448"
     >
       <v-img
         class="mx-auto my-6"
@@ -52,7 +52,7 @@
         variant="tonal"
       >
         <v-card-text class="text-medium-emphasis text-caption">
-          Warning: Internal system, cannot be exposed to the public network
+          {{ $t('login.warning') }}
         </v-card-text>
       </v-card>
 
