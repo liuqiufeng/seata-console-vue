@@ -6,11 +6,11 @@
         {{ t('login.desc') }}
       </p>
     </div>
-    <div className="animation animation1" />
-    <div className="animation animation2" />
-    <div className="animation animation3" />
-    <div className="animation animation4" />
-    <div className="animation animation5" />
+    <div class="animation animation1" />
+    <div class="animation animation2" />
+    <div class="animation animation3" />
+    <div class="animation animation4" />
+    <div class="animation animation5" />
     <v-card
       class="login-card pa-12 pb-8"
       rounded="lg"
