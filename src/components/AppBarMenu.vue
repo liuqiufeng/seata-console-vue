@@ -28,7 +28,7 @@
 </script>
 
 <template>
-  <div class="d-flex ga-4 align-center">
+  <div class="app-bar-menu d-flex ga-4 align-center">
     <a href="https://seata.apache.org/" rel="noopener noreferrer" target="_blank">HOME</a>
     <a href="https://seata.apache.org/docs/overview/what-is-seata/" rel="noopener noreferrer" target="_blank">DOCS</a>
     <a href="https://seata.apache.org/blog" rel="noopener noreferrer" target="_blank">BLOG</a>
@@ -39,6 +39,14 @@
   </div>
 </template>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
+.app-bar-menu a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.6;
 
+  &:hover{
+    opacity: 1;
+  }
+}
 </style>
