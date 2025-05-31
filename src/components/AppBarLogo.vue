@@ -3,13 +3,16 @@
 </script>
 
 <template>
-  <div style="margin-left: 16px; width: 96px;">
+  <div class="app-bar-logo">
     <a href="https://seata.apache.org/" rel="noopener noreferrer" target="_blank">
       <v-img src="@/assets/seata_logo.png" />
     </a>
   </div>
 </template>
 
-<style scoped lang="sass">
-
+<style scoped lang="scss">
+.app-bar-logo{
+  margin-left: 16px;
+  width: 96px;
+}
 </style>
