@@ -1,0 +1,1 @@
+import{b as n}from"./route-block-B_A1xBdJ.js";import{_ as t}from"./_plugin-vue_export-helper-DlAUqK2U.js";const o={};function r(c,f){return" trancation info "}typeof n=="function"&&n(o);const i=t(o,[["render",r]]);export{i as default};

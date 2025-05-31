@@ -1,0 +1,1 @@
+import{b as o}from"./route-block-B_A1xBdJ.js";import{_ as r}from"./_plugin-vue_export-helper-DlAUqK2U.js";const c={};function t(f,n){return" lock "}typeof o=="function"&&o(c);const s=r(c,[["render",t]]);export{s as default};

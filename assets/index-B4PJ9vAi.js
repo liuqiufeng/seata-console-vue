@@ -1,1 +1,0 @@
-import{a0 as e}from"./index-DJdq8vXN.js";import{b as o}from"./route-block-B_A1xBdJ.js";const t=e({__name:"index",setup(n){return(r,a)=>" dashboard "}});typeof o=="function"&&o(t);export{t as default};
