@@ -1,25 +1,11 @@
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n';
 
-  const i18n = useI18n()
+  const { t,locale } = useI18n()
   const isLogin = ref(true);
-  const changeLocaleDesc = ref('')
-
-  onMounted(() => {
-    computeChangeLocaleDesc()
-  })
 
   const changeLocale = () => {
-    i18n.locale.value = i18n.locale.value === 'en' ? 'zhHans' : 'en';
-    computeChangeLocaleDesc()
-  }
-
-  const computeChangeLocaleDesc = () => {
-    if (i18n.locale.value === 'en') {
-      changeLocaleDesc.value = '中'
-    } else {
-      changeLocaleDesc.value = 'en'
-    }
+    locale.value = locale.value === 'en' ? 'zhHans' : 'en';
   }
 
 // if (localStorage.getItem('user') !== null) {
@@ -29,12 +15,12 @@
 
 <template>
   <div class="app-bar-menu d-flex ga-4 align-center">
-    <a href="https://seata.apache.org/" rel="noopener noreferrer" target="_blank">HOME</a>
-    <a href="https://seata.apache.org/docs/overview/what-is-seata/" rel="noopener noreferrer" target="_blank">DOCS</a>
-    <a href="https://seata.apache.org/blog" rel="noopener noreferrer" target="_blank">BLOG</a>
-    <a href="https://seata.apache.org/community" rel="noopener noreferrer" target="_blank">COMMUNITY</a>
-    <a href="https://seata.apache.org/unversioned/download/seata-server" rel="noopener noreferrer" target="_blank">DOWNLOAD</a>
-    <v-btn border icon @click="changeLocale">{{ changeLocaleDesc }}</v-btn>
+    <a href="https://seata.apache.org/" rel="noopener noreferrer" target="_blank">{{ t('appBar.home') }}</a>
+    <a href="https://seata.apache.org/docs/overview/what-is-seata/" rel="noopener noreferrer" target="_blank">{{ t('appBar.docs') }}</a>
+    <a href="https://seata.apache.org/blog" rel="noopener noreferrer" target="_blank">{{ t('appBar.blog') }}</a>
+    <a href="https://seata.apache.org/community" rel="noopener noreferrer" target="_blank">{{ t('appBar.community') }}</a>
+    <a href="https://seata.apache.org/download/seata-server" rel="noopener noreferrer" target="_blank">{{ t('appBar.download') }}</a>
+    <v-btn border icon @click="changeLocale">{{ t('appBar.localeSwitchBtn') }}</v-btn>
     <v-btn v-if="isLogin" icon="mdi-account-circle" />
   </div>
 </template>
