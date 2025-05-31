@@ -3,7 +3,7 @@
     <div class="product-card" variant="flat">
       <img class="product-logo" src="@/assets/seata_logo_white.png">
       <p class="product-desc">
-        {{ $t('login.desc') }}
+        {{ t('login.desc') }}
       </p>
     </div>
     <div className="animation animation1" />
@@ -52,7 +52,7 @@
         variant="tonal"
       >
         <v-card-text class="text-medium-emphasis text-caption">
-          {{ $t('login.warning') }}
+          {{ t('login.warning') }}
         </v-card-text>
       </v-card>
 
@@ -68,15 +68,20 @@
     </v-card>
   </div>
 </template>
+
 <route lang="yaml">
 meta:
   layout: public
 </route>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
   const visible = ref(false)
 </script>
+
 <style lang="scss" scoped>
 
 @keyframes slashStar {
