@@ -8,6 +8,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { routes } from 'vue-router/auto-routes'
+import type { MenuItem } from '@/menu';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,21 @@ router.onError((err, to) => {
 
 router.isReady().then(() => {
   localStorage.removeItem('vuetify:dynamic-reload')
+  routesToMenus()
 })
 
 export default router
+
+export const menuItems = ref<MenuItem[]>([])
+
+const routesToMenus = () => {
+  router.getRoutes().forEach(route => {
+    if (route.meta.menu !==null && route.meta.menu !== undefined) {
+      const menuItem:MenuItem = {
+        title: route.meta.menu.title || 'Untitled',
+        icon: route.meta.menu.icon || '',
+        path: route.path,
+      }
+      menuItems.value.push(menuItem)
+    }})
+}
