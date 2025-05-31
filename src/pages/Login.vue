@@ -23,23 +23,23 @@
         src="@/assets/seata_logo.png"
       />
 
-      <div class="text-subtitle-1 text-medium-emphasis">Username</div>
+      <div class="text-subtitle-1 text-medium-emphasis">{{ t('login.username') }}</div>
 
       <v-text-field
         density="compact"
-        placeholder="Username"
+        :placeholder="t('login.usernamePlaceholder')"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
       />
 
       <div class="text-subtitle-1 text-medium-emphasis">
-        Password
+        {{ t('login.password') }}
       </div>
 
       <v-text-field
         :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
         density="compact"
-        placeholder="Enter your password"
+        :placeholder="t('login.passwordPlaceholder')"
         prepend-inner-icon="mdi-lock-outline"
         :type="visible ? 'text' : 'password'"
         variant="outlined"
@@ -63,7 +63,7 @@
         size="large"
         variant="tonal"
       >
-        Log In
+        {{ t('login.login') }}
       </v-btn>
     </v-card>
   </div>
