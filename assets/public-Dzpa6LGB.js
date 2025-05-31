@@ -1,0 +1,1 @@
+import{_ as t,V as r}from"./VMain-BT69jSv-.js";import{_}from"./_plugin-vue_export-helper-BTRUK4lV.js";import{I as a,E as e,J as c,G as s,K as p,L as m}from"./index-DTagTX4_.js";const l={};function i(u,f){const o=t,n=p("router-view");return m(),a(s,null,[e(o),e(r,null,{default:c(()=>[e(n)]),_:1})],64)}const w=_(l,[["render",i]]);export{w as default};
