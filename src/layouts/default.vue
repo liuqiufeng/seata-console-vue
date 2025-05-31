@@ -3,14 +3,12 @@
 
   <v-navigation-drawer expand-on-hover rail>
     <v-list nav>
-      <!--      <v-list-item exact href="/" prepend-icon="mdi-folder" title="Home" />-->
-      <!--      <v-list-item prepend-icon="mdi-folder" title="test" value="test" />-->
       <v-list-item
         v-for="(item, index) in menuItems"
         :key="'menu' + index"
-        :href="item.path"
         :prepend-icon="item.icon"
         :title="item.title"
+        :to="item.path"
       />
     </v-list>
   </v-navigation-drawer>

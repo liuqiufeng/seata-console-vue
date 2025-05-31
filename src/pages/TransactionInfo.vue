@@ -1,14 +1,19 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
-  dashboard
+  trancation info
 </template>
 
 <route lang="yaml">
+path: /transaction/info
 meta:
   menu:
     title: Dashboard
     icon: mdi-view-dashboard
 </route>
 
-<script lang="ts" setup>
-  //
-</script>
+<style scoped lang="scss">
+
+</style>

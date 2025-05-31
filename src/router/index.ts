@@ -10,6 +10,8 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import { routes } from 'vue-router/auto-routes'
 import type { MenuItem } from '@/menu';
 
+routes.push({ path: '/', redirect: '/transaction/info' })
+
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(routes),
