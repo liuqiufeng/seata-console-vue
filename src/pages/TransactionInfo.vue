@@ -10,7 +10,7 @@
 path: /transaction/info
 meta:
   menu:
-    title: Dashboard
+    title: menu.transactionInfo
     icon: mdi-view-dashboard
 </route>
 

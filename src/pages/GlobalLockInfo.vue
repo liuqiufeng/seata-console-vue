@@ -10,7 +10,7 @@
 path: /globallock/list
 meta:
   menu:
-    title: GlobalLockInfo
+    title: menu.globalLockInfo
     icon: mdi-view-dashboard
 </route>
 

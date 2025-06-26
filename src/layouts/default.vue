@@ -7,7 +7,7 @@
         v-for="(item, index) in menuItems"
         :key="'menu' + index"
         :prepend-icon="item.icon"
-        :title="item.title"
+        :title="t(item.title)"
         :to="item.path"
       />
     </v-list>
@@ -23,5 +23,7 @@
 
   import { menuItems } from '@/router';
   import AppFooter from '@/components/AppFooter.vue';
+  import { useI18n } from 'vue-i18n';
 
+  const { t } = useI18n()
 </script>
