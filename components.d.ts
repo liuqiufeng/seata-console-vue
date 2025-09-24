@@ -30,6 +30,7 @@ declare module 'vue' {
     AppContent: typeof import('./src/components/AppContent.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
+    AppMenu: typeof import('./src/components/AppMenu.vue')['default']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     LaptopOutlined: typeof import('@ant-design/icons-vue')['LaptopOutlined']
     Layout: typeof import('./src/components/PublicLayout.vue')['default']

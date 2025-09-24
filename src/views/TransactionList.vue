@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import AppContent from '@/components/AppContent.vue'
-
 const routes = [
   { breadcrumbName: 'Home', path: '' },
   { breadcrumbName: 'TransactionInfo', path: 'transaction/list' },
@@ -8,7 +6,12 @@ const routes = [
 </script>
 
 <template>
-  <app-content :routes="routes" />
+  <a-page-header
+    style="border: 1px solid rgb(235, 237, 240)"
+    title="Title"
+    :breadcrumb="{ routes }"
+    sub-title="This is a subtitle"
+  />
 </template>
 
 <style scoped lang="less"></style>
