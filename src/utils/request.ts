@@ -7,7 +7,7 @@ const { message } = useGlobalFeedback()
 const { globalUser } = useGlobalUser()
 
 const service = axios.create({
-  baseURL: '/api/v1',
+  baseURL: 'http://43.142.148.30/api/v1',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',
