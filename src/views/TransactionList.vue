@@ -54,6 +54,7 @@ const routes = [
       </a-form-item>
     </a-form>
   </a-card>
+  <a-table />
 </template>
 
 <style scoped lang="less">

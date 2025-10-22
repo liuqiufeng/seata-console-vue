@@ -39,6 +39,7 @@ declare module 'vue' {
     ASelectOption: typeof import('ant-design-vue/es')['SelectOption']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ASwitch: typeof import('ant-design-vue/es')['Switch']
+    ATable: typeof import('ant-design-vue/es')['Table']
     LaptopOutlined: typeof import('@ant-design/icons-vue')['LaptopOutlined']
     Layout: typeof import('./src/components/PublicLayout.vue')['default']
     NotificationOutlined: typeof import('@ant-design/icons-vue')['NotificationOutlined']
