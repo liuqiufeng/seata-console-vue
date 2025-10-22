@@ -26,6 +26,11 @@ const router = createRouter({
           name: 'transactionList',
           component: () => import('@/views/TransactionList.vue'),
         },
+        {
+          path: 'globallock/list',
+          name: 'globalLockList',
+          component: () => import('@/views/GlobalLockList.vue'),
+        }
       ],
     },
   ],

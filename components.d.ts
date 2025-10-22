@@ -42,6 +42,7 @@ declare module 'vue' {
     ATable: typeof import('ant-design-vue/es')['Table']
     LaptopOutlined: typeof import('@ant-design/icons-vue')['LaptopOutlined']
     Layout: typeof import('./src/components/PublicLayout.vue')['default']
+    LockOutlined: typeof import('@ant-design/icons-vue')['LockOutlined']
     NotificationOutlined: typeof import('@ant-design/icons-vue')['NotificationOutlined']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
