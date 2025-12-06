@@ -57,10 +57,22 @@ const columns: TableColumnsType = [
     title: '操作',
     key: 'action',
     fixed: 'right',
-    width: 200,
+    width: 300,
   },
 ]
-const data = []
+const data = [
+  {
+    xid: 'testxid1',
+    transactionId: 1234567890,
+    applicationId: 'app1',
+    transactionServiceGroup: 'group1',
+    transactionName: 'transaction1',
+    status: 'begin',
+    timeout: 6000,
+    beginTime: '2024-01-01 10:00:00',
+    applicationData: 'data1',
+  },
+]
 
 const onFinish = async () => {
   const resposne = await request.post('/console/globalSession/query', {})
@@ -124,14 +136,23 @@ const onFinish = async () => {
     <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'action'">
         <span>
-          <a>Invite 一 {{ record.xid }}</a>
+          <a>查看全局锁</a>
           <a-divider type="vertical" />
-          <a>Delete</a>
-          <a-divider type="vertical" />
-          <a class="ant-dropdown-link">
-            More actions
-            <down-outlined />
-          </a>
+          <a-dropdown>
+            <a class="ant-dropdown-link" @click.prevent>
+              更多操作
+              <down-outlined />
+            </a>
+            <template #overlay>
+              <a-menu>
+                <a-menu-item>删除全局事务</a-menu-item>
+                <a-menu-item>强制删除全局事务</a-menu-item>
+                <a-menu-item>停止全局事务重试</a-menu-item>
+                <a-menu-item>提交或回滚全局事务</a-menu-item>
+                <a-menu-item>更新全局事务状态</a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
         </span>
       </template>
     </template>
