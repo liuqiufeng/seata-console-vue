@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import request from '@/utils/request.ts'
+import type { TableColumnsType } from 'ant-design-vue'
 
 const routes = [
   { breadcrumbName: 'Home', path: '' },
   { breadcrumbName: 'TransactionInfo', path: 'transaction/list' },
 ]
 
-const columns = [
+const columns: TableColumnsType = [
   {
     title: 'xid',
     dataIndex: 'xid',
@@ -55,9 +56,11 @@ const columns = [
   {
     title: '操作',
     key: 'action',
+    fixed: 'right',
+    width: 200,
   },
 ]
-const data = [{}]
+const data = []
 
 const onFinish = async () => {
   const resposne = await request.post('/console/globalSession/query', {})
@@ -117,11 +120,11 @@ const onFinish = async () => {
       </a-form-item>
     </a-form>
   </a-card>
-  <a-table :columns="columns" :data="data" :scroll="{ x: true }">
+  <a-table :columns="columns" :data-source="data" :scroll="{ x: 1300 }">
     <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'action'">
         <span>
-          <a>Invite 一 {{ record.name }}</a>
+          <a>Invite 一 {{ record.xid }}</a>
           <a-divider type="vertical" />
           <a>Delete</a>
           <a-divider type="vertical" />
