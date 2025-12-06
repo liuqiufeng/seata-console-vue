@@ -1,16 +1,79 @@
 <script setup lang="ts">
+import request from '@/utils/request.ts'
+
 const routes = [
   { breadcrumbName: 'Home', path: '' },
   { breadcrumbName: 'TransactionInfo', path: 'transaction/list' },
 ]
+
+const columns = [
+  {
+    title: 'xid',
+    dataIndex: 'xid',
+    key: 'xid',
+  },
+  {
+    title: 'transactionId',
+    dataIndex: 'transactionId',
+    key: 'transactionId',
+  },
+  {
+    title: 'applicationId',
+    dataIndex: 'applicationId',
+    key: 'applicationId',
+  },
+  {
+    title: 'transactionServiceGroup',
+    dataIndex: 'transactionServiceGroup',
+    key: 'transactionServiceGroup',
+  },
+  {
+    title: 'transactionName',
+    dataIndex: 'transactionName',
+    key: 'transactionName',
+  },
+  {
+    title: 'status',
+    dataIndex: 'status',
+    key: 'status',
+  },
+  {
+    title: 'timeout',
+    dataIndex: 'timeout',
+    key: 'timeout',
+  },
+  {
+    title: 'beginTime',
+    dataIndex: 'beginTime',
+    key: 'beginTime',
+  },
+  {
+    title: 'applicationData',
+    dataIndex: 'applicationData',
+    key: 'applicationData',
+  },
+  {
+    title: '操作',
+    key: 'action',
+  },
+]
+const data = [{}]
+
+const onFinish = async () => {
+  const resposne = await request.post('/console/globalSession/query', {})
+}
 </script>
 
 <template>
   <a-page-header title="事务列表" :breadcrumb="{ routes }" sub-title="全局事务列表" />
   <a-card>
-    <a-form layout="inline" style="margin: 10px 0">
+    <a-form layout="inline" style="margin: 10px 0" @finish="onFinish">
       <a-form-item label="创建时间">
-        <a-range-picker :show-time="true" format="YYYY-MM-DD HH:mm:ss" :placeholder="['起始日期', '结束日期']"/>
+        <a-range-picker
+          :show-time="true"
+          format="YYYY-MM-DD HH:mm:ss"
+          :placeholder="['起始日期', '结束日期']"
+        />
       </a-form-item>
       <a-form-item label="xid">
         <a-input placeholder="请输入筛选条件" />
@@ -46,7 +109,7 @@ const routes = [
         </a-select>
       </a-form-item>
       <a-form-item label="branchSession">
-        <a-switch/>
+        <a-switch />
       </a-form-item>
       <a-form-item>
         <a-button type="primary" html-type="button">搜索</a-button>
@@ -54,7 +117,22 @@ const routes = [
       </a-form-item>
     </a-form>
   </a-card>
-  <a-table />
+  <a-table :columns="columns" :data="data" :scroll="{ x: true }">
+    <template #bodyCell="{ column, record }">
+      <template v-if="column.key === 'action'">
+        <span>
+          <a>Invite 一 {{ record.name }}</a>
+          <a-divider type="vertical" />
+          <a>Delete</a>
+          <a-divider type="vertical" />
+          <a class="ant-dropdown-link">
+            More actions
+            <down-outlined />
+          </a>
+        </span>
+      </template>
+    </template>
+  </a-table>
 </template>
 
 <style scoped lang="less">
