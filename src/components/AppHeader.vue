@@ -11,11 +11,11 @@ const baseUrl = computed(() =>
 )
 
 const navbarMenus = computed(() => [
-  { id: 1, title: t('header.navbar.home'), link: baseUrl.value },
-  { id: 2, title: t('header.navbar.docs'), link: `${baseUrl.value}docs/overview/what-is-seata/` },
-  { id: 3, title: t('header.navbar.blog'), link: `${baseUrl.value}blog` },
-  { id: 4, title: t('header.navbar.community'), link: `${baseUrl.value}community` },
-  { id: 5, title: t('header.navbar.download'), link: `${baseUrl.value}download/seata-server` },
+  { id: 1, title: t('header.home'), link: baseUrl.value },
+  { id: 2, title: t('header.docs'), link: `${baseUrl.value}docs/overview/what-is-seata/` },
+  { id: 3, title: t('header.blog'), link: `${baseUrl.value}blog` },
+  { id: 4, title: t('header.community'), link: `${baseUrl.value}community` },
+  { id: 5, title: t('header.download'), link: `${baseUrl.value}download/seata-server` },
 ])
 
 const changeLocale = () => {
