@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue'
+import { reactive } from 'vue'
 import request from '@/utils/request.ts'
 import { useI18n } from 'vue-i18n'
 import { useGlobalUser } from '@/stores/globalUser'
@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18n()
-const { globalUser, setGlobalUser } = useGlobalUser()
+const { setGlobalUser } = useGlobalUser()
 
 interface LoginParams {
   username: string
@@ -24,12 +24,6 @@ const onFinish = async (params: LoginParams) => {
   setGlobalUser(response.data)
   router.push('/')
 }
-
-onMounted(() => {
-  if (globalUser.login) {
-    router.push('/')
-  }
-})
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGlobalUser } from '@/stores/globalUser.ts'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const { globalUser, setGlobalUser } = useGlobalUser()
@@ -27,6 +27,15 @@ const logout = () => {
   setGlobalUser(null)
   router.replace('/login')
 }
+
+onMounted(() => {
+  if (!globalUser.login && router.currentRoute.value.path !== '/login') {
+    router.push('/login')
+  }
+  if (globalUser.login && router.currentRoute.value.path === '/login') {
+    router.push('/')
+  }
+})
 </script>
 
 <template>
