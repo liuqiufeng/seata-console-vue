@@ -7,6 +7,7 @@ const messages: I18n = {
     blog: '博客',
     community: '社区',
     download: '下载',
+    logout: '退出',
   },
   login: {
     login: '登录',

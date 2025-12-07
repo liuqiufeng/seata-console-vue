@@ -7,6 +7,7 @@ const messages: I18n = {
     blog: 'BLOG',
     community: 'COMMUNITY',
     download: 'DOWNLOAD',
+    logout: 'Logout',
   },
   login: {
     login: 'Login',

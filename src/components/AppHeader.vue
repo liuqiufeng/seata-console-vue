@@ -2,9 +2,11 @@
 import { useGlobalUser } from '@/stores/globalUser.ts'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-const { globalUser } = useGlobalUser()
+const { globalUser, setGlobalUser } = useGlobalUser()
 const { t, locale } = useI18n()
+const router = useRouter()
 
 const baseUrl = computed(() =>
   locale.value === 'en' ? 'https://seata.apache.org/' : 'https://seata.apache.org/zh-cn/',
@@ -20,6 +22,10 @@ const navbarMenus = computed(() => [
 
 const changeLocale = () => {
   locale.value = locale.value === 'en' ? 'zh-cn' : 'en'
+}
+const logout = () => {
+  setGlobalUser(null)
+  router.push('/login')
 }
 </script>
 
@@ -42,9 +48,16 @@ const changeLocale = () => {
           </a-button>
         </li>
         <li v-if="globalUser.login">
-          <a-avatar :size="32">
-            <template #icon><UserOutlined /></template>
-          </a-avatar>
+          <a-dropdown>
+            <a-avatar :size="32">
+              <template #icon><UserOutlined /></template>
+            </a-avatar>
+            <template #overlay>
+              <a-menu>
+                <a-menu-item @click="logout">{{ t('header.logout') }}</a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
         </li>
       </ul>
     </div>

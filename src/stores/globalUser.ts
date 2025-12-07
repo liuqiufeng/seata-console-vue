@@ -17,7 +17,7 @@ export const useGlobalUser = defineStore('globalUser', () => {
     login: false,
   })
   function setGlobalUser(token: string | null) {
-    if (token && token !== 'null') {
+    if (token && token !== '' && token !== 'null') {
       localStorage.setItem(AUTHORIZATION_HEADER, token)
       const base64Url = token.split('.')[1]
       const base64 = base64Url.replace('-', '+').replace('_', '/')
@@ -27,6 +27,12 @@ export const useGlobalUser = defineStore('globalUser', () => {
       // fixme test timezone issue
       globalUser.login = globalUser.username !== '' && globalUser.expiredAt > Date.now() / 1000
       globalUser.token = token
+    } else {
+      localStorage.removeItem(AUTHORIZATION_HEADER)
+      globalUser.token = ''
+      globalUser.username = ''
+      globalUser.expiredAt = 0
+      globalUser.login = false
     }
   }
   return { globalUser, setGlobalUser }
