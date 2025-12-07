@@ -3,6 +3,9 @@ import { reactive } from 'vue'
 import request from '@/utils/request.ts'
 import router from '@/router'
 import { useGlobalUser } from '@/stores/globalUser.ts'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface LoginParams {
   username: string
@@ -26,7 +29,7 @@ const onFinish = async (params: LoginParams) => {
     <section class="top-section">
       <div class="vertical-middle product-area">
         <img class="product-logo" src="@/assets/img/seata_logo_white.png" />
-        <p class="product-desc">产品描述</p>
+        <p class="product-desc">{{ t('login.desc') }}</p>
       </div>
       <div class="animation animation1" />
       <div class="animation animation2" />
@@ -34,7 +37,7 @@ const onFinish = async (params: LoginParams) => {
       <div class="animation animation4" />
       <div class="animation animation5" />
       <div class="login-panel">
-        <a-card title="登录">
+        <a-card :title="t('login.login')">
           <a-form
             :model="loginParams"
             name="loginForm"
@@ -43,24 +46,31 @@ const onFinish = async (params: LoginParams) => {
             @finish="onFinish"
           >
             <a-form-item :wrapper-col="{ span: 24 }" style="text-align: center">
-              <a-alert type="warning" message="警告：内部系统，请勿暴露到公网" />
+              <a-alert type="warning" :message="t('login.warning')" />
             </a-form-item>
             <a-form-item
-              label="Username"
+              :label="t('login.username')"
               name="username"
-              :rules="[{ required: true, message: '请输入用户名' }]"
+              :rules="[{ required: true, message: t('login.pleaseInputUsername') }]"
             >
-              <a-input placeholder="用户名" v-model:value="loginParams.username" />
+              <a-input
+                :placeholder="t('login.pleaseInputUsername')"
+                v-model:value="loginParams.username"
+              />
             </a-form-item>
             <a-form-item
-              label="Password"
+              :label="t('login.password')"
               name="password"
-              :rules="[{ required: true, message: '请输入密码' }]"
+              :rules="[{ required: true, message: t('login.pleaseInputPassword') }]"
             >
-              <a-input type="password" placeholder="密码" v-model:value="loginParams.password" />
+              <a-input
+                type="password"
+                :placeholder="t('login.pleaseInputPassword')"
+                v-model:value="loginParams.password"
+              />
             </a-form-item>
             <a-form-item :wrapper-col="{ offset: 8, span: 8 }">
-              <a-button type="primary" html-type="submit" block>登录</a-button>
+              <a-button type="primary" html-type="submit" block>{{ t('login.login') }}</a-button>
             </a-form-item>
           </a-form>
         </a-card>

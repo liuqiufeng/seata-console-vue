@@ -30,7 +30,7 @@ const router = createRouter({
           path: 'globallock/list',
           name: 'globalLockList',
           component: () => import('@/views/GlobalLockList.vue'),
-        }
+        },
       ],
     },
   ],
