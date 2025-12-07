@@ -1,5 +1,4 @@
 import type { I18n } from '@/types'
-import { warn } from 'vue'
 
 const messages: I18n = {
   header: {
