@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
-const { globalUser, setGlobalUser } = useGlobalUser()
+const { setGlobalUser, isLogin } = useGlobalUser()
 const { t, locale } = useI18n()
 const router = useRouter()
 
@@ -29,10 +29,10 @@ const logout = () => {
 }
 
 onMounted(() => {
-  if (!globalUser.login && router.currentRoute.value.path !== '/login') {
+  if (!isLogin() && router.currentRoute.value.path !== '/login') {
     router.push('/login')
   }
-  if (globalUser.login && router.currentRoute.value.path === '/login') {
+  if (isLogin() && router.currentRoute.value.path === '/login') {
     router.push('/')
   }
 })
@@ -56,7 +56,7 @@ onMounted(() => {
             {{ locale === 'en' ? '中' : 'EN' }}
           </a-button>
         </li>
-        <li v-if="globalUser.login">
+        <li v-if="isLogin()">
           <a-dropdown>
             <a-avatar :size="32">
               <template #icon><UserOutlined /></template>
