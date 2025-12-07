@@ -25,7 +25,7 @@ const changeLocale = () => {
 }
 const logout = () => {
   setGlobalUser(null)
-  router.push('/login')
+  router.replace('/login')
 }
 </script>
 
