@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import request from '@/utils/request.ts'
 import type { TableColumnsType } from 'ant-design-vue'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const routes = [
-  { breadcrumbName: 'Home', path: '' },
-  { breadcrumbName: 'TransactionInfo', path: 'transaction/list' },
-]
+const { t } = useI18n()
+
+const routes = computed(() => [
+  { breadcrumbName: t('header.home'), path: '' },
+  { breadcrumbName: t('transactionInfo.title'), path: 'transaction/list' },
+])
 
 const columns: TableColumnsType = [
   {
@@ -80,24 +84,35 @@ const onFinish = async () => {
 </script>
 
 <template>
-  <a-page-header title="事务列表" :breadcrumb="{ routes }" sub-title="全局事务列表" />
+  <a-page-header
+    :title="t('transactionInfo.title')"
+    :breadcrumb="{ routes }"
+    :sub-title="t('transactionInfo.subTitle')"
+  />
   <a-card>
     <a-form layout="inline" style="margin: 10px 0" @finish="onFinish">
-      <a-form-item label="创建时间">
+      <a-form-item :label="t('transactionInfo.createTimeLabel')">
         <a-range-picker
           :show-time="true"
           format="YYYY-MM-DD HH:mm:ss"
-          :placeholder="['起始日期', '结束日期']"
+          :placeholder="[
+            t('transactionInfo.selectStartTimePlaceholder'),
+            t('transactionInfo.selectEndTimePlaceholder'),
+          ]"
         />
       </a-form-item>
       <a-form-item label="xid">
-        <a-input placeholder="请输入筛选条件" />
+        <a-input :placeholder="t('transactionInfo.inputFilterPlaceholder')" />
       </a-form-item>
       <a-form-item label="applicationId">
-        <a-input placeholder="请输入筛选条件" />
+        <a-input :placeholder="t('transactionInfo.inputFilterPlaceholder')" />
       </a-form-item>
       <a-form-item label="status">
-        <a-select allow-clear placeholder="请选择筛选条件" style="width: 150px">
+        <a-select
+          allow-clear
+          :placeholder="t('transactionInfo.selectFilerPlaceholder')"
+          style="width: 150px"
+        >
           <a-select-option value="all">全部</a-select-option>
           <a-select-option value="begin">开始</a-select-option>
           <a-select-option value="committing">提交中</a-select-option>
@@ -109,26 +124,39 @@ const onFinish = async () => {
         </a-select>
       </a-form-item>
       <a-form-item label="namespace">
-        <a-select placeholder="请选择筛选条件" style="width: 150px">
+        <a-select
+          :placeholder="t('transactionInfo.selectNamespaceFilerPlaceholder')"
+          style="width: 150px"
+        >
           <a-select-option value="public">public</a-select-option>
         </a-select>
       </a-form-item>
       <a-form-item label="cluster">
-        <a-select placeholder="请选择筛选条件" style="width: 150px">
+        <a-select
+          :placeholder="t('transactionInfo.selectClusterFilerPlaceholder')"
+          style="width: 150px"
+        >
           <a-select-option value="default">default</a-select-option>
         </a-select>
       </a-form-item>
       <a-form-item label="vgroup">
-        <a-select placeholder="请选择筛选条件" style="width: 150px">
+        <a-select
+          :placeholder="t('transactionInfo.selectVGroupFilerPlaceholder')"
+          style="width: 150px"
+        >
           <a-select-option value="default">default</a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-item label="branchSession">
+      <a-form-item :label="t('transactionInfo.branchSessionSwitchLabel')">
         <a-switch />
       </a-form-item>
       <a-form-item>
-        <a-button type="primary" html-type="button">搜索</a-button>
-        <a-button style="margin-left: 10px" html-type="button">重置</a-button>
+        <a-button type="primary" html-type="button">{{
+          t('transactionInfo.searchButtonLabel')
+        }}</a-button>
+        <a-button style="margin-left: 10px" html-type="button">{{
+          t('transactionInfo.resetButtonLabel')
+        }}</a-button>
       </a-form-item>
     </a-form>
   </a-card>

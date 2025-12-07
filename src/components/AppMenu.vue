@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
 
 <template>
   <a-menu mode="inline" :style="{ height: '100%', borderRight: 0 }">
@@ -6,7 +10,7 @@
       <template #icon>
         <user-outlined />
       </template>
-      <router-link to="/transaction/list">Transaction List</router-link>
+      <router-link to="/transaction/list">{{ t('transactionInfo.title') }}</router-link>
     </a-menu-item>
     <a-menu-item key="sub2">
       <template #icon>
